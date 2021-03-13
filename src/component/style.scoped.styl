@@ -1,0 +1,118 @@
+trans(props...)
+  transition-timing-function: ease
+  transition-duration: .3s
+  transition-property: unquote(props)
+
+$color-border = #d6d6d6
+$color-accent = blue
+
+label
+  font-size: 15px
+  font-family: sans-serif
+  position: relative
+  max-width: 300px
+  display: block
+
+  box-sizing: border-box
+  *
+    box-sizing: border-box
+
+.label-text
+  margin: 0
+  margin-bottom: 0.6em
+
+.input-container
+  border: 1px solid $color-border
+  border-radius: 4px
+  &.focused
+    border-color: $color-accent
+
+input
+  display: block
+  width: 100%
+  padding: 0
+  background-color: transparent
+  border: none
+  padding: 11px
+  font-size: inherit
+  outline: none
+
+  // IE11 fixes
+  &::-ms-clear
+    display: none
+  &:-ms-input-placeholder
+    opacity: 0.3
+
+.selected-value
+  user-select: none
+  pointer-events: none
+  margin-top: -29px
+  padding-left: 12px
+  padding-bottom: 12px
+  &.typing
+    opacity: .3
+
+ul
+  list-style-type: none
+  padding: 0
+  margin: 0
+
+.list
+  overflow: hidden
+  overflow-y: auto
+  position: absolute
+  width: 100%
+  left: 0
+  top: calc(100% + 12px)
+  background-color: #fff
+  z-index: 10
+
+  m = 2;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034/m),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048/m),
+  0 12.5px 10px rgba(0, 0, 0, 0.06/m),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072/m)
+
+  border-radius: 4px
+  max-height: 0
+  trans('max-height')
+  &.active
+    max-height: 200px
+
+  li.message
+    display: none
+  &.not-found
+    &.active
+      max-height: 50px
+    li.message
+      display: block
+
+li
+  &.selected
+    .list-item
+      background-color: rgba($color-accent, .4) !important
+      color: #fff
+      font-weight: 700
+
+.list-item, .message
+  display: block
+  width: 100%
+  border: none
+  text-align: left
+  background: none
+  padding: 16px 16px
+  font-size: 14px
+
+.list-item
+  cursor: pointer
+  &:hover
+    background-color: rgba($color-border, .2)
+  &:active
+    background-color: rgba($color-border, .5)
+  &.focused
+    background-color: rgba($color-accent, .4)
+    color: #fff
+
+.message
+  text-align: center

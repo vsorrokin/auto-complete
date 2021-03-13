@@ -1,0 +1,19 @@
+---
+
+extends:
+  - react-app
+  - react-app/jest
+  - airbnb
+  - airbnb/hooks
+
+parser: babel-eslint
+
+env:
+  browser: true
+  node: true
+  jest: true
+
+rules:
+  react/prefer-stateless-function: 0
+  jsx-a11y/label-has-associated-control: 0
+  jsx-a11y/no-noninteractive-element-interactions: 0

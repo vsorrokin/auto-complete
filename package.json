@@ -1,0 +1,57 @@
+{
+  "name": "auto-complete",
+  "version": "0.1.0",
+  "description": "Autocomplete component for React",
+  "author": "Vadim Sorokin",
+  "bugs": {
+    "url": "https://github.com/vsorrokin/auto-complete/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:vsorrokin/auto-complete.git"
+  },
+  "scripts": {
+    "start": "start-storybook",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "axios-mock-adapter": "^1.19.0",
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-react": "^7.12.13",
+    "@storybook/addon-essentials": "^6.1.21",
+    "@storybook/react": "^6.1.21",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-react-scoped-css": "^1.1.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.1.2",
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.3.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.2.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-testing-library": "^3.10.1",
+    "eslint-webpack-plugin": "^2.5.2",
+    "mini-css-extract-plugin": "^1.3.9",
+    "path": "^0.12.7",
+    "scoped-css-loader": "^1.0.0",
+    "style-loader": "^2.0.0",
+    "stylus": "^0.54.8",
+    "stylus-loader": "4",
+    "webpack": "4",
+    "webpack-cli": "3",
+    "webpack-node-externals": "^2.5.2"
+  }
+}

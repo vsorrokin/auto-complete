@@ -1,4 +1,3 @@
-/* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -22,9 +21,10 @@ class AutoComplete extends Component {
     this.state = {
       list: [],
       focused: false,
-      selectedItem: null,
       query: '',
+      selectedItem: null,
       focusedIndex: null,
+      state: 'idle', // idle/typing/searching/found/notFound/selected
     };
   }
 
@@ -33,6 +33,7 @@ class AutoComplete extends Component {
       selectedItem: null,
       query: value,
       focusedIndex: null,
+      state: value ? 'typing' : 'idle',
     });
     this.debouncedSearch(value);
   }
@@ -61,11 +62,11 @@ class AutoComplete extends Component {
       13: 'enter',
     };
     const key = mapping[e.which];
-
-    if (!key) return;
-    e.preventDefault();
-
     const { focusedIndex, list } = this.state;
+
+    if (!key || !list.length) return;
+
+    e.preventDefault();
 
     if (key === 'enter') {
       if (focusedIndex !== null) {
@@ -99,15 +100,28 @@ class AutoComplete extends Component {
       query: '',
       list: [],
       focusedIndex: null,
+      state: 'selected',
     });
 
     onChange(item);
   }
 
   search(value) {
+    if (!value) {
+      this.setState({ list: [] });
+      return;
+    }
+
     const { searchFn } = this.props;
+    this.setState({ state: 'searching' });
+
     searchFn(value).then((list) => {
-      this.setState({ list });
+      this.setState({
+        list,
+        state: list.length ? 'found' : 'notFound',
+      }, () => {
+        this.list.current.scrollTop = 0;
+      });
     });
   }
 
@@ -131,13 +145,14 @@ class AutoComplete extends Component {
   render() {
     const { placeholder, label } = this.props;
     const {
-      list, focused, selectedItem, query, focusedIndex,
+      list, focused, selectedItem, query, focusedIndex, state,
     } = this.state;
 
     return (
       <label className="auto-complete">
         <p className="label-text">{label}</p>
         <div className={cn('input-container', { focused })}>
+          {state === 'searching' && (<i className="spinner" />)}
           <input
             ref={this.input}
             onFocus={this.onFocus}
@@ -154,9 +169,13 @@ class AutoComplete extends Component {
             </div>
           )}
         </div>
-        <div className={cn('list', { active: focused })} ref={this.list}>
+        <div
+          className={cn('list', { active: focused, 'not-found': state === 'notFound' })}
+          ref={this.list}
+        >
           <ul>
-            {list.map((item, index) => (
+            <li className="message">Nothing found</li>
+            {(list || []).map((item, index) => (
               <li key={item.id}>
                 <button
                   className={cn('list-item', { focused: focusedIndex === index })}

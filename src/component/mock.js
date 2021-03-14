@@ -1,5 +1,5 @@
 export default [
-  { name: 'AAA: Some very very long item just to show that interface is working fine and don\'t break', code: 'FAKE' },
+  { name: 'AAA: Some very very long item just to show that interface is working fine and not breaking', code: 'FAKE' },
   { name: 'Afghanistan', code: 'AF' },
   { name: 'Åland Islands', code: 'AX' },
   { name: 'Albania', code: 'AL' },

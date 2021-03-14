@@ -6,6 +6,9 @@ trans(props...)
 $color-border = #d6d6d6
 $color-accent = blue
 
+$input-padding = 11px
+$input-border-width = 1px
+
 label
   font-size: 15px
   font-family: sans-serif
@@ -22,8 +25,15 @@ label
   margin-bottom: 0.6em
 
 .input-container
-  border: 1px solid $color-border
+  border: $input-border-width solid $color-border
   border-radius: 4px
+  position: relative
+  .spinner
+    position: absolute
+    right: $input-padding
+    top: 0
+    bottom: 0
+    margin: auto
   &.focused
     border-color: $color-accent
 
@@ -33,9 +43,10 @@ input
   padding: 0
   background-color: transparent
   border: none
-  padding: 11px
+  padding: $input-padding
   font-size: inherit
   outline: none
+  padding-right: $input-padding * 3
 
   // IE11 fixes
   &::-ms-clear
@@ -46,9 +57,10 @@ input
 .selected-value
   user-select: none
   pointer-events: none
-  margin-top: -29px
-  padding-left: 12px
-  padding-bottom: 12px
+  margin-top: "calc(-%s - %s)" % ($input-padding 1.2em)
+  padding-left: ($input-padding + $input-border-width)
+  padding-bottom: @padding-left
+  padding-right: $input-padding * 3
   &.typing
     opacity: .3
 
@@ -63,7 +75,7 @@ ul
   position: absolute
   width: 100%
   left: 0
-  top: calc(100% + 12px)
+  top: "calc(100% + %s)" % ($input-padding + $input-border-width)
   background-color: #fff
   z-index: 10
 
@@ -116,3 +128,27 @@ li
 
 .message
   text-align: center
+
+
+.spinner
+  $color = #000
+  $size = 1em
+
+  display: inline-block
+  width: $size
+  height: $size
+  &:after
+    content: ' '
+    display: block
+    width: (0.8 * $size)
+    height: (0.8 * $size)
+    border-radius: 50%
+    border: (0.1 * $size) solid $color
+    border-color: $color transparent $color transparent
+    animation: spinner 1.2s linear infinite
+
+@keyframes spinner
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)

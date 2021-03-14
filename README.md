@@ -28,8 +28,8 @@ Here you can edit component example props: [src/component/index.stories.jsx](src
  
 ### Live demo
 
-Storybook demo: https://604ddfc2ff8ae90021ea2bb1-jkfjjijzfo.chromatic.com/
+Storybook demo: https://604ddfc2ff8ae90021ea2bb1-iryayibmsg.chromatic.com/
 
-Component only demo: https://604ddfc2ff8ae90021ea2bb1-jkfjjijzfo.chromatic.com/iframe.html?id=example-auto-complete--primary&viewMode=story
+Component only demo: https://604ddfc2ff8ae90021ea2bb1-iryayibmsg.chromatic.com/iframe.html?id=example-auto-complete--primary&viewMode=story
 
-Component props docs: https://604ddfc2ff8ae90021ea2bb1-jkfjjijzfo.chromatic.com/?path=/docs/example-auto-complete--primary
+Component props docs: https://604ddfc2ff8ae90021ea2bb1-iryayibmsg.chromatic.com/?path=/docs/example-auto-complete--primary

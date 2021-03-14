@@ -142,6 +142,15 @@ class AutoComplete extends Component {
     listEl.scrollTop = focusedItem.offsetTop - 50;
   }
 
+  highlightQuery(value) {
+    const { query } = this.state;
+    // Escape html tags
+    const safeValue = new XMLSerializer().serializeToString(document.createTextNode(value));
+    return {
+      __html: safeValue.replace(new RegExp(query, 'gi'), (match) => `<b>${match}</b>`),
+    };
+  }
+
   render() {
     const { placeholder, label } = this.props;
     const {
@@ -183,7 +192,7 @@ class AutoComplete extends Component {
                   onMouseDown={this.onItemMouseDown}
                   onClick={() => this.setItem(item)}
                 >
-                  {item.value}
+                  <span dangerouslySetInnerHTML={this.highlightQuery(item.value)} />
                 </button>
               </li>
             ))}

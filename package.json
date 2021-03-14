@@ -14,7 +14,8 @@
   "scripts": {
     "start": "start-storybook",
     "build-storybook": "build-storybook",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "chromatic": "npx chromatic --project-token d199629949bf"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -33,6 +34,7 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "babel-plugin-react-scoped-css": "^1.1.1",
+    "chromatic": "^5.7.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.1.2",
     "eslint": "^7.21.0",

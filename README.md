@@ -8,6 +8,7 @@
 ### Code preview
 
 The component code is located at [src/component/index.jsx](src/component/index.jsx)
+
 Here you can edit component example props: [src/component/index.stories.jsx](src/component/index.stories.jsx)
 
 ### Example of usage

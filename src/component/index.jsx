@@ -150,7 +150,7 @@ class AutoComplete extends Component {
 
     return (
       <label className="auto-complete">
-        <p className="label-text">{label}</p>
+        {label && (<p className="label-text">{label}</p>)}
         <div className={cn('input-container', { focused })}>
           {state === 'searching' && (<i className="spinner" />)}
           <input
@@ -196,12 +196,12 @@ class AutoComplete extends Component {
 
 AutoComplete.propTypes = {
   /**
-    * Message prop description goes here
+    * Placeholder text
   */
   placeholder: PropTypes.string,
 
   /**
-    * Label prop description goes here
+    * Label text
   */
   label: PropTypes.string,
   /**

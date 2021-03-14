@@ -100,4 +100,4 @@ You can use global styles which applied to all components, you can write style p
 
   
 
-I didn't use this but remember that there is attribute which is called something like setHTMLDangerously. In case of need will google in seconds :)
+Use dangerouslySetInnerHTML attribute if you are sure that this HTML string is safe to render.

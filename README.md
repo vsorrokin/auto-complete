@@ -1,5 +1,9 @@
 ## Auto-complete component for react
 
+### Development notes
+
+I didn't use i18next, didn't write tests and didn't make all other required staff for a full value public production component because of lack of time for the test project. So I can do all of that if need, just let me know :)
+
 ### Local preview and development
 
     yarn
@@ -10,6 +14,8 @@
 The component code is located at [src/component/index.jsx](src/component/index.jsx)
 
 Here you can edit component example props: [src/component/index.stories.jsx](src/component/index.stories.jsx)
+
+Functional component code is located at [src/component_functional/index.jsx](src/component_functional/index.jsx)
 
 ### Example of usage
 

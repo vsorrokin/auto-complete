@@ -5,8 +5,9 @@ import MockAdapter from 'axios-mock-adapter';
 import AutoComplete from './index';
 import mockData from './mock';
 
+const ENDPOINT = 'https://api.com/countries';
 const mock = new MockAdapter(axios, { delayResponse: 300 });
-mock.onGet('https://api.com/countries').reply(({ query }) => [
+mock.onGet(ENDPOINT).reply(({ query }) => [
   200,
   mockData
     .filter(({ name }) => name.toLowerCase().includes(query.toLowerCase()))
@@ -16,6 +17,7 @@ mock.onGet('https://api.com/countries').reply(({ query }) => [
 export default {
   title: 'Example/Auto-complete',
   component: AutoComplete,
+  // parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: {
     placeholder: { control: 'text' },
     label: { control: 'text' },
@@ -29,7 +31,7 @@ Primary.args = {
   label: 'Select country',
   placeholder: 'Start typing country name...',
   searchFn: (query) => axios
-    .get('https://api.com/countries', { query })
+    .get(ENDPOINT, { query })
     .then(({ data }) => data),
   onChange: (value) => {
     console.log('Item selected:', value);

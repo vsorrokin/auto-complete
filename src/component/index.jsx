@@ -205,8 +205,8 @@ AutoComplete.propTypes = {
   */
   label: PropTypes.string,
   /**
-    * Function which accepts search string argument and must return promise which
-    * must resolves to array of objects with value and id props:
+    * Function which accepts search string argument and must return
+    * promise which resolves to array of objects with value and id props:
     * [{ id: 1, value: 'One' }, ...]
   */
   searchFn: PropTypes.func.isRequired,

@@ -9,12 +9,14 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  externals: [nodeExternals()],
+  externals: [nodeExternals({
+    allowlist: ['classnames'],
+  })],
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
     library: '',
-    libraryTarget: 'commonjs',
+    libraryTarget: 'umd',
   },
   plugins: [
     new CleanWebpackPlugin(),

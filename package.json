@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Autocomplete component for React",
   "author": "Vadim Sorokin",
+  "main": "dist/index.js",
   "bugs": {
     "url": "https://github.com/vsorrokin/auto-complete/issues"
   },

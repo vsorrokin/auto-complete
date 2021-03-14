@@ -13,6 +13,7 @@
   },
   "scripts": {
     "start": "start-storybook",
+    "build-storybook": "build-storybook",
     "build": "webpack --mode production"
   },
   "dependencies": {
